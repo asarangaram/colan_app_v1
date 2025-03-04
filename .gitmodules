@@ -4,3 +4,6 @@
 [submodule "external_packages/cl_media_viewers_flutter"]
 	path = external_packages/cl_media_viewers_flutter
 	url = git@github.com:asarangaram/cl_media_viewers_flutter.git
+[submodule "external_packages/video_trimmer"]
+	path = external_packages/video_trimmer
+	url = git@github.com:asarangaram/video_trimmer.git

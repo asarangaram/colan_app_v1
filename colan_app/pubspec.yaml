@@ -7,6 +7,8 @@ environment:
   sdk: ^3.6.0
 
 dependencies:
+  cl_dart_extensions:
+    path: ../cl_dart_extensions
   flutter:
     sdk: flutter
 

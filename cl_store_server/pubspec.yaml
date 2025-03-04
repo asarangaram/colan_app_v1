@@ -2,10 +2,14 @@ name: cl_store_server
 description: A starting point for Dart libraries or applications.
 version: 0.1.0
 
+publish_to: none
+
 environment:
   sdk: ^3.6.0
 
-#dependencies:
+dependencies:
+  cl_store:
+    path: ../cl_store
 
 dev_dependencies:
   lints: ^3.0.0

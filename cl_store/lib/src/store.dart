@@ -159,5 +159,5 @@ abstract class Store {
   void reloadStore();
   void dispose();
 
-  //Stream<List<T?>> storeReaderStream<T>(StoreQuery<T> storeQuery);
+  Stream<List<T?>> storeReaderStream<T>(StoreQuery<T> storeQuery);
 }

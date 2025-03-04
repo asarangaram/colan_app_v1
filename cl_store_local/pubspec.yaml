@@ -2,10 +2,19 @@ name: cl_store_local
 description: A starting point for Dart libraries or applications.
 version: 0.1.0
 
+publish_to: none
+
 environment:
   sdk: ^3.6.0
 
-#dependencies:
+dependencies:
+  cl_dart_extensions:
+    path: ../cl_dart_extensions
+  cl_store:
+    path: ../cl_store
+  collection: ^1.19.1
+  meta: ^1.16.0
+  sqlite_async: ^0.11.4
 
 dev_dependencies:
   lints: ^3.0.0

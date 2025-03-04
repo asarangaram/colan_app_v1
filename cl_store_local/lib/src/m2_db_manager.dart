@@ -199,7 +199,7 @@ class DBManager extends Store {
 
   @override
   Future<Collection?> updateCollectionFromMap(Map<String, dynamic> map) {
-    // TODO: implement updateCollectionFromMap
+    // TODO(anandas): : implement updateCollectionFromMap
     throw UnimplementedError();
   }
 }

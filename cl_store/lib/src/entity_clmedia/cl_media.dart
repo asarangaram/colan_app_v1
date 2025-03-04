@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:math';
+
 import 'package:meta/meta.dart';
 
 import '../entity/cl_entity.dart';
+import '../entity_collection/collection.dart';
 import 'cl_media_base.dart';
 import 'cl_media_type.dart';
-import '../entity_collection/collection.dart';
 
 @immutable
 class CLMedia extends CLMediaBase implements CLEntity {

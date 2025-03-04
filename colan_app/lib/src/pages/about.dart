@@ -1,7 +1,9 @@
 import 'package:cl_dart_extensions/cl_dart_extensions.dart';
+import 'package:cl_services/cl_services.dart';
 import 'package:cl_store/cl_store.dart';
 import 'package:cl_store_local/cl_store_local.dart';
 import 'package:cl_store_server/cl_store_server.dart';
+import 'package:cl_widgets/cl_widgets.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
@@ -32,6 +34,8 @@ class AboutPage extends StatelessWidget {
                   'Store': getStoreVersion,
                   'Local Store': getLocalStoreVersion,
                   'Server Store': getServerStoreVersion,
+                  'services': getServicesVersion,
+                  'widgets': getWidgetsVersion,
                 }.entries)
                   PackageVersion(
                     name: entry.key,

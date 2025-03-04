@@ -1,4 +1,3 @@
-import 'package:cl_dart_extensions/cl_dart_extensions.dart';
 import 'package:cl_store/src/entity/cl_entity.dart';
 import 'package:meta/meta.dart';
 
@@ -93,7 +92,8 @@ abstract class StoreReader {
       get(DBQueries.mediaById, parameters: [id]);
 
   Future<CLEntities<Collection>> getCollectionsByIDList(
-          List<int> idList) async =>
+    List<int> idList,
+  ) async =>
       getMultiple(
         DBQueries.collectionByIdList,
         parameters: ['(${idList.join(', ')})'],

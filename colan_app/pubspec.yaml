@@ -1,0 +1,19 @@
+name: colan_app
+description: "Colan App - A Media Repository App"
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
+  very_good_analysis: ^7.0.0
+
+flutter:
+  uses-material-design: true

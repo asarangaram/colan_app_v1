@@ -1,6 +1,7 @@
+import 'package:cl_dart_extensions/cl_dart_extensions.dart';
 import 'package:meta/meta.dart';
 
-import 'cl_entities.dart';
+import 'cl_entity.dart';
 
 @immutable
 class GalleryGroup<T> {
@@ -32,27 +33,6 @@ extension ExtListGalleryGroupMutable<T> on List<GalleryGroupMutable<T>> {
         0,
         (previousValue, element) => previousValue + element.items.length,
       );
-}
-
-extension IterableExtensions<E> on Iterable<E> {
-  E? firstWhereOrNull(bool Function(E element) test) {
-    for (final element in this) {
-      if (test(element)) {
-        return element;
-      }
-    }
-    return null;
-  }
-}
-
-extension IterableIndexedExtensions<E> on Iterable<E> {
-  void forEachIndexed(void Function(int index, E element) action) {
-    var index = 0;
-    for (final element in this) {
-      action(index, element);
-      index++;
-    }
-  }
 }
 
 extension ExtListGalleryGroupMutableBool<bool>

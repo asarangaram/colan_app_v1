@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:meta/meta.dart';
 
-import 'cl_entities.dart';
-import 'cl_media.dart';
-import 'cl_media_base.dart';
+import '../entity/cl_entity.dart';
+import '../entity_clmedia/cl_media.dart';
+import '../entity_clmedia/cl_media_base.dart';
 
 @immutable
 class Collection implements CLEntity {

@@ -5,23 +5,6 @@ import 'package:meta/meta.dart';
 
 import 'collection.dart';
 
-List<T> updateEntry<T>(
-  List<T> list,
-  bool Function(T) test,
-  T Function(T) replaceBy,
-) {
-  final index = list.indexWhere(test);
-  if (index == -1) {
-    return list;
-  }
-
-  final updatedList = List<T>.from(list);
-
-  updatedList[index] = replaceBy(updatedList[index]);
-
-  return updatedList;
-}
-
 @immutable
 class Collections {
   const Collections(
@@ -48,7 +31,11 @@ class Collections {
   }
 
   factory Collections.fromJson(String source) =>
+      Collections.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  factory Collections.fromJsonList(String source) =>
       Collections.fromList(json.decode(source) as List<dynamic>);
+
   final List<Collection> entries;
 
   Collections copyWith({

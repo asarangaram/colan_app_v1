@@ -1,20 +1,42 @@
 import 'package:cl_dart_extensions/cl_dart_extensions.dart';
+import 'package:meta/meta.dart';
 
+import 'cl_entity.dart';
 import 'gallery_group.dart';
 
-abstract class CLEntity {
-  bool get isMarkedDeleted;
-  bool get isMarkedEditted;
-  bool get isMarkedForUpload;
+@immutable
+class CLEntities<T extends CLEntity> {
+  const CLEntities({
+    required this.entities,
+    this.currentPage = 1,
+    this.totalPages = 1,
+    this.currentVersion,
+    this.lastSyncVersion,
+    this.latestVersion,
+    this.perPage,
+  });
+  final List<T> entities;
 
-  bool isContentSame(covariant CLEntity other);
+  final int? currentVersion;
+  final int? lastSyncVersion;
+  final int? latestVersion;
 
-  bool get hasServerUID;
-  bool isChangedAfter(CLEntity other);
-  int? get entityId;
+  final int? perPage;
+  final int currentPage;
+  final int totalPages;
 
-  DateTime? get entityOriginalDate;
-  DateTime get entityCreatedDate;
+  Map<String, List<CLEntity>> filterbyDate() {
+    return entities.filterByDate();
+  }
+
+  List<GalleryGroupCLEntity<CLEntity>> groupByTime(int columns) {
+    return entities.groupByTime(columns);
+  }
+
+  bool get hasNext => currentPage < totalPages;
+  bool get hasPrevious => currentPage > 1;
+
+  bool get updatesAvailable => currentVersion != latestVersion;
 }
 
 extension Filter on List<CLEntity> {

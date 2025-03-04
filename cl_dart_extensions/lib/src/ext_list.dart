@@ -24,3 +24,22 @@ extension IndexExtonNullableIterable<T> on Iterable<T?> {
     return where((e) => e != null).map((e) => e!).toSet();
   }
 }
+
+extension IterableExtensions<T> on Iterable<T> {
+  T? firstWhereOrNull(bool Function(T element) test) {
+    for (final element in this) {
+      if (test(element)) {
+        return element;
+      }
+    }
+    return null;
+  }
+
+  void forEachIndexed(void Function(int index, T element) action) {
+    var index = 0;
+    for (final element in this) {
+      action(index, element);
+      index++;
+    }
+  }
+}

@@ -1,5 +1,5 @@
-name: cl_dart_extensions
-description: A collection of extensions defined for standard data types.
+name: cl_store_local
+description: A starting point for Dart libraries or applications.
 version: 0.1.0
 
 environment:

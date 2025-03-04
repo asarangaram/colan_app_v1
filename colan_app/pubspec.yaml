@@ -9,6 +9,13 @@ environment:
 dependencies:
   cl_dart_extensions:
     path: ../cl_dart_extensions
+  cl_store:
+    path: ../cl_store
+  cl_store_local:
+    path: ../cl_store_local
+  cl_store_server:
+    path: ../cl_store_server
+
   flutter:
     sdk: flutter
 

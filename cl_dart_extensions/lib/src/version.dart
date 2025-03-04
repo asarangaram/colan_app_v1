@@ -1,6 +1,3 @@
-import 'package:package_info_plus/package_info_plus.dart';
+String _version = '0.1.0';
 
-Future<String> getDartExtensionsVersion() async {
-  final packageInfo = await PackageInfo.fromPlatform();
-  return packageInfo.version;
-}
+Future<String> getDartExtensionsVersion() async => _version;

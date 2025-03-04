@@ -1,4 +1,7 @@
 import 'package:cl_dart_extensions/cl_dart_extensions.dart';
+import 'package:cl_store/cl_store.dart';
+import 'package:cl_store_local/cl_store_local.dart';
+import 'package:cl_store_server/cl_store_server.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
@@ -24,24 +27,47 @@ class AboutPage extends StatelessWidget {
                   'Keep It, A Colan App',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                FutureBuilder(
-                  future: getDartExtensionsVersion(),
-                  builder: (context, snapShot) {
-                    if (snapShot.connectionState == ConnectionState.waiting ||
-                        !snapShot.hasData) {
-                      return const SizedBox.shrink();
-                    }
-                    return Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Package: Extensions: ${snapShot.data!}'),
-                    );
-                  },
-                ),
+                for (final entry in {
+                  'Extension': getDartExtensionsVersion,
+                  'Store': getStoreVersion,
+                  'Local Store': getLocalStoreVersion,
+                  'Server Store': getServerStoreVersion,
+                }.entries)
+                  PackageVersion(
+                    name: entry.key,
+                    getVersion: entry.value,
+                  ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class PackageVersion extends StatelessWidget {
+  const PackageVersion({
+    required this.name,
+    required this.getVersion,
+    super.key,
+  });
+  final String name;
+  final Future<String> Function() getVersion;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: getVersion(),
+      builder: (context, snapShot) {
+        if (snapShot.connectionState == ConnectionState.waiting ||
+            !snapShot.hasData) {
+          return const SizedBox.shrink();
+        }
+        return ListTile(
+          title: Text('Package: $name: ${snapShot.data!}'),
+        );
+      },
     );
   }
 }
